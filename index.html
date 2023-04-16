@@ -1,0 +1,679 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title> FE Developer 정 종 영</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="8aeefedb-3d92-4788-9fd9-2c738d75dc75" class="page sans"><header><img class="page-cover-image" src="FE%20Developer%20%E1%84%8C%E1%85%A5%E1%86%BC%20%E1%84%8C%E1%85%A9%E1%86%BC%20%E1%84%8B%E1%85%A7%E1%86%BC%208aeefedb3d9247889fd92c738d75dc75/maxresdefault.jpg" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="FE%20Developer%20%E1%84%8C%E1%85%A5%E1%86%BC%20%E1%84%8C%E1%85%A9%E1%86%BC%20%E1%84%8B%E1%85%A7%E1%86%BC%208aeefedb3d9247889fd92c738d75dc75/unnamed.jpg"/></div><h1 class="page-title"> FE Developer 정 종 영</h1></header><div class="page-body"><h2 id="6fd92690-5a25-45ff-9c5e-e02bcfe53eeb" class="">👨‍💻 Front-End Engineer, Web Developer</h2><p id="ee94a0f1-c464-4da6-a78e-20c01d25b78a" class="">😀  저는 이런 저런 사람입니다. 아이유 대신 본인 사진으로 교체해 보세요. 😃</p><p id="70a4a71b-b12d-4556-8049-dc3716683191" class="">
+</p><div id="833874b6-49e0-4d01-b6ed-970b91abd165" class="column-list"><div id="06766e0e-8b54-4faa-acb7-c4e82bc5065f" style="width:50%" class="column"><h2 id="f06ed46e-822e-4d1f-ada6-0da1fa25739a" class="">👦 Profile</h2><hr id="2069b75a-b9b5-4151-8166-67c14281ca41"/><p id="b96bc657-91ee-4936-9759-3f1d132a29c8" class="">👶  xx년 x월 xx일 출생</p><p id="4eef6e71-64f4-4a0b-bb0a-cc4541c0b4b8" class="">🏫  A고등학교 졸업 (20xx.03. ~ 20xx.02.)</p><p id="caa8bb00-5829-443b-8670-5e0e9c47fdf1" class="">👨‍🎓  B대학교 졸업 (20xx.03 ~ 20xx.02.)</p></div><div id="15be5ab3-0919-42e2-9216-60a1d2b61b1b" style="width:50.000000000000014%" class="column"><h2 id="5bad5f12-6fba-4f73-8f57-548c6b478e1c" class="">💡 Contact</h2><hr id="1a0483ea-9cca-4f38-b467-049b080de342"/><p id="e3eb8543-e929-473c-93ab-9d62ee7eda71" class="">📭  abcd@gmail.com </p><p id="c2c7f829-1f29-4792-8817-25c14028ecfc" class="">📞  010-1234-5678</p><p id="4eefd755-d22d-4110-a1fc-ad6f73c40817" class="">📘  (Linkedin Link)</p><p id="6712f083-4ccb-49bd-b3d8-edb59c4b6ac4" class="">
+</p></div></div><div id="d7424cb9-c728-448c-bdb2-35fbd5cfd782" class="column-list"><div id="1a2cfb29-4e2b-4c1f-82e4-6e1b7ebccc8e" style="width:50%" class="column"><h2 id="112671a9-6933-451f-8622-a0fabe09ea46" class="">🎞 Career</h2><hr id="9f091e29-fcb4-489c-a351-e9bbbc09c63e"/><ul id="876a5175-90b1-43a2-82df-38e5fd829af0" class="bulleted-list"><li style="list-style-type:disc">Company (20xx.01.01 ~ 20xx.12.31.)</li></ul><ul id="4a740f1a-14f1-49da-a87c-03e2ae906a38" class="bulleted-list"><li style="list-style-type:disc">New Company... (20xx.01.01. ~ 재직 중)</li></ul><p id="1359193e-3110-4ee8-87a2-d5a55f72d2f6" class="">
+</p></div><div id="4be993b8-74a1-4508-b5b4-e5c2a83eb434" style="width:50%" class="column"><h2 id="15c7d10c-0287-4ecc-8084-bf41d11b8222" class="">🏆 Prize</h2><hr id="61a33b80-ae46-4408-ab67-8aa927f34e36"/><ul id="bc9475de-75c5-49da-891a-fad10db6c9d1" class="bulleted-list"><li style="list-style-type:disc">대한민국 최고의 개발자 콘테스트 입선 (2017)</li></ul></div></div><div id="95367fa0-6572-40ef-bafe-68eef1a50c50" class="column-list"><div id="9689171c-b1fe-4fa7-95f6-8ab959cbefa4" style="width:50%" class="column"><h2 id="2f86e68e-7d44-41d2-a067-8ea9f03ad9b5" class="">📝 Blog</h2><hr id="1b43df15-7c02-432c-b6df-0cdea0f81fda"/><figure id="3fa60f7d-2c72-4a98-b951-3bb011a746a8"><a href="https://www.tistory.com" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">TISTORY</div><div class="bookmark-description">이 놀라운 사이트들이 모두 다티스토리라는 사실 티스토리는 그저 공간일 뿐이에요. 그 공간에 무슨일이 일어날지는 아무도 상상할 수 없죠. 마음에 드는스킨고르기부터 시작해보세요 티스토리는 얼굴이 없어요. 당신이 얼굴을 직접 제작할 수 있도록 다양한 스킨을 제공할 뿐이에요. 마음대로 조립하는 내 콘텐츠 내 마음대로 위치를 바꿔하나의 커버로도 전혀 다른 스킨을 만들 수 있어요.</div></div><div class="bookmark-href"><img src="https://t1.daumcdn.net/tistory_admin/static/top/favicon.ico" class="icon bookmark-icon"/>https://www.tistory.com</div></div><img src="http://t1.daumcdn.net/tistory_admin/static/images/openGraph/opengraph.png" class="bookmark-image"/></a></figure><p id="94fd76e7-b8f8-4c11-9a38-d015d48bbb7b" class="">
+</p></div><div id="d4e2c399-cdb0-4330-a497-c1788c89f413" style="width:50%" class="column"><h2 id="6c564739-02ff-4895-b129-01d114345ca1" class="">🗃 Github</h2><hr id="3f3af26c-a6c0-44dd-85ff-c225fbba87ef"/><figure id="b50cdd8a-1b8c-4423-b8df-ba02662cde7f"><a href="https://github.com" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Build software better, together</div><div class="bookmark-description">GitHub brings together the world&#x27;s largest community of developers to discover, share, and build better software. From open source projects to private team repositories, we&#x27;re your all-in-one platform for collaborative development.</div></div><div class="bookmark-href"><img src="https://github.com/favicon.ico" class="icon bookmark-icon"/>https://github.com</div></div><img src="https://github.githubassets.com/images/modules/open_graph/github-logo.png" class="bookmark-image"/></a></figure></div></div><p id="b1c2f002-9935-4677-927d-2c5c149a813c" class="">↑ Web bookmark로 본인의 Blog / Github 링크를 삽입해 보세요! 😃</p><p id="076c99a5-dbc8-4b03-8cf5-1d41418cd3ab" class="">
+</p><h2 id="320a5083-7342-4097-8a8b-2a68c02c67c7" class="">📑 Certificate</h2><hr id="9a7b876c-ba93-4201-aba4-c1821f1c8cb6"/><ul id="209daf21-7f98-4c39-a2c7-bdde8cccb53e" class="bulleted-list"><li style="list-style-type:disc">Toeic Speaking Lv.7 (20xx.xx.xx.)</li></ul><ul id="920e8b4f-da4c-4408-b5be-90aa426f5bc3" class="bulleted-list"><li style="list-style-type:disc">정보처리기사 (20xx.xx.xx.)</li></ul><p id="2dd3aedb-9010-4611-9d6c-f09ed46eceb4" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="04169cd0-aefd-4519-8fda-416666ed92b3"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">삼각형 표시는 클릭하여 확장할 수 있고, 각 프로젝트는 클릭하여 이동할 수 있습니다.</div></figure><div id="648ea6e2-2460-48cc-9180-c47934ac22b5" class="column-list"><div id="f52174f9-8460-4d1a-b0a3-6d98815e5af0" style="width:50%" class="column"><h2 id="336b85bf-138d-4336-beac-53f7e25b1258" class="">⚒ Personal &amp; Team Project</h2><hr id="7143b10e-d38b-4927-b222-93c057280ce6"/><ul id="710304dd-b51a-4152-8bb7-94806e0b8f58" class="toggle"><li><details open=""><summary>xx대학교 재학 중 진행</summary><figure id="5283496c-393a-414d-aafb-88c5a583ef80" class="link-to-page"><a href="https://www.notion.so/1-Android-5283496c393a414daafb88c5a583ef80"><span class="icon">📰</span>나의 프로젝트 1 (Android)</a></figure><figure id="0d32f896-c068-4f36-974a-bd3c69a54225" class="link-to-page"><a href="https://www.notion.so/2-Android-0d32f896c0684f36974abd3c69a54225"><span class="icon">🚋</span>나의 프로젝트 2 (Android)</a></figure><figure id="64fc084c-297b-42d8-be3c-0fd295e598b0" class="link-to-page"><a href="https://www.notion.so/3-Web-64fc084c297b42d8be3c0fd295e598b0"><span class="icon">📒</span>나의 프로젝트 3 (Web)</a></figure><p id="61322549-d8e4-498a-bd2c-27839bff5f43" class="">
+</p></details></li></ul></div><div id="8946cb85-babc-447d-86ae-9160603e9978" style="width:50.00000000000002%" class="column"><h2 id="47758338-d317-42dc-99eb-b514cca28aa1" class="">🛠 Project in Company</h2><hr id="1da61226-c665-4f31-8432-30dbaa378684"/><ul id="1a529d06-6824-4a6d-8237-f2fc402984a2" class="toggle"><li><details open=""><summary>Company</summary><figure id="da68681e-744d-4b0d-a48a-6357e59eab3d" class="link-to-page"><a href="https://www.notion.so/1-da68681e744d4b0da48a6357e59eab3d"><span class="icon">🔐</span>나의 기술 경력서 1</a></figure><figure id="fa378a45-b96e-49af-b7ea-340c297383ca" class="link-to-page"><a href="https://www.notion.so/2-fa378a45b96e49afb7ea340c297383ca"><span class="icon">📊</span>나의 기술 경력서 2</a></figure><figure id="2901e17b-2ffb-45a7-ad5d-d68287afab37" class="link-to-page"><a href="https://www.notion.so/3-2901e17b2ffb45a7ad5dd68287afab37"><span class="icon">📁</span>나의 기술 경력서 3</a></figure><p id="b2966e6f-fe55-4e3c-8526-6fe9c515ed52" class="">
+</p></details></li></ul><p id="e435e854-a059-4970-8cb6-13135e553bcd" class="">
+</p></div></div><div id="0c03ac30-a986-46e8-be17-771e5f3e745a" class="collection-content"><h4 class="collection-title">Skills</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M0.637695 13.1914C1.0957 13.1914 1.32812 13 1.47852 12.5215L2.24414 10.3887H6.14746L6.90625 12.5215C7.05664 13 7.2959 13.1914 7.74707 13.1914C8.22559 13.1914 8.5332 12.9043 8.5332 12.4531C8.5332 12.2891 8.50586 12.1523 8.44434 11.9678L5.41602 3.79199C5.2041 3.21777 4.82129 2.9375 4.19922 2.9375C3.60449 2.9375 3.21484 3.21777 3.0166 3.78516L-0.0322266 12.002C-0.09375 12.1797 -0.121094 12.3232 -0.121094 12.4668C-0.121094 12.918 0.166016 13.1914 0.637695 13.1914ZM2.63379 9.12402L4.17871 4.68066H4.21973L5.76465 9.12402H2.63379ZM12.2793 13.2324C13.3115 13.2324 14.2891 12.6787 14.7129 11.8037H14.7402V12.5762C14.7471 12.9863 15.0273 13.2393 15.4238 13.2393C15.834 13.2393 16.1143 12.9795 16.1143 12.5215V8.00977C16.1143 6.49902 14.9658 5.52148 13.1543 5.52148C11.7666 5.52148 10.6592 6.08887 10.2695 6.99121C10.1943 7.15527 10.1533 7.3125 10.1533 7.46289C10.1533 7.81152 10.4062 8.04395 10.7686 8.04395C11.0215 8.04395 11.2129 7.94824 11.3496 7.73633C11.7529 6.99121 12.2861 6.65625 13.1064 6.65625C14.0977 6.65625 14.6992 7.20996 14.6992 8.1123V8.67285L12.5664 8.7959C10.7686 8.8916 9.77734 9.69824 9.77734 11.0107C9.77734 12.3369 10.8096 13.2324 12.2793 13.2324ZM12.6621 12.1387C11.8008 12.1387 11.2129 11.667 11.2129 10.9561C11.2129 10.2725 11.7598 9.82129 12.7578 9.75977L14.6992 9.62988V10.3203C14.6992 11.3457 13.7969 12.1387 12.6621 12.1387Z"></path></svg></span>Name</th><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesPerson"><path d="M10.9536 7.90088C12.217 7.90088 13.2559 6.79468 13.2559 5.38525C13.2559 4.01514 12.2114 2.92017 10.9536 2.92017C9.70142 2.92017 8.65137 4.02637 8.65698 5.39087C8.6626 6.79468 9.69019 7.90088 10.9536 7.90088ZM4.4231 8.03003C5.52368 8.03003 6.42212 7.05859 6.42212 5.83447C6.42212 4.63843 5.51245 3.68945 4.4231 3.68945C3.33374 3.68945 2.41846 4.64966 2.41846 5.84009C2.42407 7.05859 3.32251 8.03003 4.4231 8.03003ZM1.37964 13.168H5.49561C4.87231 12.292 5.43384 10.6074 6.78711 9.51807C6.18628 9.14746 5.37769 8.87231 4.4231 8.87231C1.95239 8.87231 0.262207 10.6917 0.262207 12.1628C0.262207 12.7974 0.548584 13.168 1.37964 13.168ZM7.50024 13.168H14.407C15.4009 13.168 15.7322 12.8423 15.7322 12.2864C15.7322 10.8489 13.8679 8.88354 10.9536 8.88354C8.04492 8.88354 6.17505 10.8489 6.17505 12.2864C6.17505 12.8423 6.50635 13.168 7.50024 13.168Z"></path></svg></span>Assign</th><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesSelect"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM7.62402 10.6348C7.79492 10.915 8.20508 10.9287 8.37598 10.6348L10.666 6.73145C10.8574 6.41016 10.7002 6.04102 10.3652 6.04102H5.62793C5.29297 6.04102 5.14941 6.43066 5.32031 6.73145L7.62402 10.6348Z"></path></svg></span>Level</th></tr></thead><tbody><tr id="ecc8d8b2-0799-4def-b4e9-f622c973e6ea"><td class="cell-title"><a href="https://www.notion.so/Groovy-ecc8d8b207994defb4e9f622c973e6ea"><span class="icon">✔️</span>Groovy</a></td><td class="cell-%6We"></td><td class="cell-f7&#x27;C"><span class="selected-value select-value-color-gray">보고 이해할 수는 있어요.</span></td></tr><tr id="cafdf329-7912-4905-9cd1-bc842cf1254e"><td class="cell-title"><a href="https://www.notion.so/SVN-cafdf329791249059cd1bc842cf1254e"><span class="icon">⚙️</span>SVN</a></td><td class="cell-%6We"></td><td class="cell-f7&#x27;C"><span class="selected-value select-value-color-red">업무에도 활용해요.</span></td></tr><tr id="20a35ce6-97d3-4899-9ada-62dc06052302"><td class="cell-title"><a href="https://www.notion.so/Java-20a35ce697d348999ada62dc06052302"><span class="icon">✔️</span>Java</a></td><td class="cell-%6We"></td><td class="cell-f7&#x27;C"><span class="selected-value select-value-color-red">업무에도 활용해요.</span></td></tr><tr id="6dfd6b19-da6b-4c14-9974-d80f92a1010b"><td class="cell-title"><a href="https://www.notion.so/Spring-6dfd6b19da6b4c149974d80f92a1010b"><span class="icon">✔️</span>Spring</a></td><td class="cell-%6We"></td><td class="cell-f7&#x27;C"><span class="selected-value select-value-color-red">업무에도 활용해요.</span></td></tr><tr id="93faed5c-29ff-4638-8e69-28061eb8745d"><td class="cell-title"><a href="https://www.notion.so/Docker-93faed5c29ff46388e6928061eb8745d"><span class="icon">⚙️</span>Docker</a></td><td class="cell-%6We"></td><td class="cell-f7&#x27;C"><span class="selected-value select-value-color-blue">어느 정도 사용할 줄 알아요.</span></td></tr><tr id="42ab2d7f-d390-4140-a683-39460f2d7f28"><td class="cell-title"><a href="https://www.notion.so/Git-42ab2d7fd3904140a68339460f2d7f28"><span class="icon">⚙️</span>Git</a></td><td class="cell-%6We"></td><td class="cell-f7&#x27;C"><span class="selected-value select-value-color-blue">어느 정도 사용할 줄 알아요.</span></td></tr><tr id="d4e02efc-dbc7-43e4-bd74-cf55826e79bb"><td class="cell-title"><a href="https://www.notion.so/JSP-d4e02efcdbc743e4bd74cf55826e79bb"><span class="icon">✔️</span>JSP</a></td><td class="cell-%6We"></td><td class="cell-f7&#x27;C"><span class="selected-value select-value-color-red">업무에도 활용해요.</span></td></tr><tr id="eb91ac0e-bbca-4e56-b7f5-762f06164dc3"><td class="cell-title"><a href="https://www.notion.so/Javascript-eb91ac0ebbca4e56b7f5762f06164dc3"><span class="icon">✔️</span>Javascript</a></td><td class="cell-%6We"></td><td class="cell-f7&#x27;C"><span class="selected-value select-value-color-red">업무에도 활용해요.</span></td></tr><tr id="bf8ffea8-00d3-49fe-bc2d-7cd411122c55"><td class="cell-title"><a href="https://www.notion.so/Angular-bf8ffea800d349febc2d7cd411122c55"><span class="icon">✔️</span>Angular</a></td><td class="cell-%6We"></td><td class="cell-f7&#x27;C"><span class="selected-value select-value-color-red">업무에도 활용해요.</span></td></tr><tr id="c98e36d7-387c-44db-8942-0165e6c8d883"><td class="cell-title"><a href="https://www.notion.so/SQL-Server-c98e36d7387c44db89420165e6c8d883"><span class="icon">✔️</span>SQL Server</a></td><td class="cell-%6We"></td><td class="cell-f7&#x27;C"><span class="selected-value select-value-color-blue">어느 정도 사용할 줄 알아요.</span></td></tr><tr id="1be9769b-521a-47a9-b8dc-60e0986b4899"><td class="cell-title"><a href="https://www.notion.so/Android-1be9769b521a47a9b8dc60e0986b4899"><span class="icon">✔️</span>Android</a></td><td class="cell-%6We"></td><td class="cell-f7&#x27;C"><span class="selected-value select-value-color-blue">어느 정도 사용할 줄 알아요.</span></td></tr><tr id="1a926a3f-aaa2-4d3c-8c7f-aaede172ec7d"><td class="cell-title"><a href="https://www.notion.so/Python-1a926a3faaa24d3c8c7faaede172ec7d"><span class="icon">✔️</span>Python</a></td><td class="cell-%6We"></td><td class="cell-f7&#x27;C"><span class="selected-value select-value-color-gray">보고 이해할 수는 있어요.</span></td></tr><tr id="de07bd65-2900-4873-a1e5-f319b7bb90d1"><td class="cell-title"><a href="https://www.notion.so/MyBatis-de07bd6529004873a1e5f319b7bb90d1"><span class="icon">✔️</span>MyBatis</a></td><td class="cell-%6We"></td><td class="cell-f7&#x27;C"><span class="selected-value select-value-color-red">업무에도 활용해요.</span></td></tr><tr id="26c0aed7-a8e9-4aac-af2b-1f48dc9e6ad2"><td class="cell-title"><a href="https://www.notion.so/MySQL-26c0aed7a8e94aacaf2b1f48dc9e6ad2"><span class="icon">✔️</span>MySQL</a></td><td class="cell-%6We"></td><td class="cell-f7&#x27;C"><span class="selected-value select-value-color-red">업무에도 활용해요.</span></td></tr><tr id="a7efc6b5-8303-4d42-97a1-246a4bc86598"><td class="cell-title"><a href="https://www.notion.so/Oracle-a7efc6b583034d4297a1246a4bc86598"><span class="icon">✔️</span>Oracle</a></td><td class="cell-%6We"></td><td class="cell-f7&#x27;C"><span class="selected-value select-value-color-red">업무에도 활용해요.</span></td></tr><tr id="fa207e7b-9b8e-471a-b109-3b66599af0cf"><td class="cell-title"><a href="https://www.notion.so/fa207e7b9b8e471ab1093b66599af0cf"><span class="icon">💡</span>카드는 클릭해서 읽을 수 있습니다!</a></td><td class="cell-%6We"></td><td class="cell-f7&#x27;C"></td></tr><tr id="d05bd546-1bca-466f-985e-9fc170175041"><td class="cell-title"><a href="https://www.notion.so/ASP-d05bd5461bca466f985e9fc170175041"><span class="icon">✔️</span>ASP</a></td><td class="cell-%6We"></td><td class="cell-f7&#x27;C"><span class="selected-value select-value-color-gray">보고 이해할 수는 있어요.</span></td></tr><tr id="3b627948-8f7a-4561-ae6c-e8519157e4a0"><td class="cell-title"><a href="https://www.notion.so/C-3b6279488f7a4561ae6ce8519157e4a0"><span class="icon">✔️</span>C++</a></td><td class="cell-%6We"></td><td class="cell-f7&#x27;C"><span class="selected-value select-value-color-gray">보고 이해할 수는 있어요.</span></td></tr><tr id="abb23d8b-fed7-4686-b0ef-54fb846e333d"><td class="cell-title"><a href="https://www.notion.so/Elastic-Search-abb23d8bfed74686b0ef54fb846e333d"><span class="icon">⚙️</span>Elastic Search</a></td><td class="cell-%6We"></td><td class="cell-f7&#x27;C"><span class="selected-value select-value-color-gray">보고 이해할 수는 있어요.</span></td></tr><tr id="c08a6f83-b338-47ec-9b0f-277f6343a072"><td class="cell-title"><a href="https://www.notion.so/JPA-c08a6f83b33847ec9b0f277f6343a072"><span class="icon">📓</span>JPA</a></td><td class="cell-%6We"></td><td class="cell-f7&#x27;C"><span class="selected-value select-value-color-red">업무에도 활용해요.</span></td></tr></tbody></table></div><p id="2ed8154f-2f52-4408-ad1b-c60d36fcd84a" class="">
+</p><h1 id="e13a2759-d1d7-4990-957a-bcc003133da1" class="">😄 감사합니다.</h1></div></article></body></html>
